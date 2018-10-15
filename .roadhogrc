@@ -1,0 +1,36 @@
+{
+  "entry": "src/index.js",
+  "disableCSSModules": false,
+  "publicPath": "/",
+  "proxy": {
+    "/repo/accounts": {
+      "target": "http://10.0.33.14:58080/",
+      "changeOrigin": true,
+      "secure": false
+    },
+    "/op-newhouse": {
+      "target": "http://10.0.33.14:58080/",
+      "changeOrigin": true,
+      "secure": false
+    }
+  },
+  "env": {
+    "development": {
+      "extraBabelPlugins": [
+        "dva-hmr",
+        "transform-runtime", ["import", {
+          "libraryName": "antd",
+          "style": "css"
+        }]
+      ]
+    },
+    "production": {
+      "extraBabelPlugins": [
+        "transform-runtime", ["import", {
+          "libraryName": "antd",
+          "style": "css"
+        }]
+      ]
+    }
+  }
+}
